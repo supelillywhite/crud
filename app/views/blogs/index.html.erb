@@ -1,0 +1,12 @@
+<h1>Blogs</h1>
+
+<p><%= link_to  "Create New Item", new_blog_path %></p>
+
+<% @blogs.each do |blog| %>
+  <p><%= link_to blog.title, blog_path(blog.id) %></p>
+  <p><%= blog.date %></p>
+  <p><%= blog.author %></p>
+  <p><%= blog.body %></p>
+  <%= link_to "Edit", edit_blog_path(blog.id) %>
+  <%= link_to "Delete", blog_path(blog), method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
